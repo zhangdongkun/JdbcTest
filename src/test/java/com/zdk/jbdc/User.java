@@ -7,6 +7,9 @@ public class User implements Serializable {
     private static final long serialVersionUID = 3226312103017947198L;
     private String name;
     private String  id;
+    private String  age;
+    private String  gender;
+
 
     public String getName() {
         return name;
@@ -24,11 +27,19 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                '}';
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

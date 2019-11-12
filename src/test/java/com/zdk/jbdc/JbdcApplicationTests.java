@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -50,6 +51,24 @@ public class JbdcApplicationTests {
 
 
     }
+
+    /**
+     *
+     /**
+     * @author zhangwq
+     * Java8 四大内置函数式接口
+     * 1、Consumer<T> 消费型接口，无返回值。适用于有参数传入没有返回值的情况
+     *    void accept(T t)
+     * 2、Supplier<T> 供给型接口
+     *     T get()
+     * 3、Function(T,R) 函数型接口
+     *    R apply(T t)
+     * 4、Pridecate<T> 判断型接口
+     *     boolean test(T t)
+
+    ————————————————
+     *
+     */
     @Test
     public void lambdaTest () {
         List<String> list = Arrays.asList("a1","b222222","c","d","e");
@@ -64,12 +83,19 @@ public class JbdcApplicationTests {
         List<Integer> list2 = Arrays.asList(1,2,3,4,100,123);
         list2.forEach((a)->System.out.println());
 
+
+      this.buy(100,(a)->System.out.println("这是["+a+"]"+"元钱"));
+
     }
 
 
     public String getUser(User u) {
         return Optional.ofNullable(u).map(u2->u2.getName()).map(u3->u.getId()).get();
 
+    }
+
+    public void  buy(double money , Consumer<Double> consumer){
+        consumer.accept(money);
     }
 
 
